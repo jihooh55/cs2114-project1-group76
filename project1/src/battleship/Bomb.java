@@ -1,11 +1,11 @@
 package battleship;
-public class Battleship extends Battleships {
+public class Bomb {
     //~ Fields ................................................................
-
+    private int x = 0;
+    private int y = 0;
+    
     //~ Constructors ..........................................................
-    public Battleship() {
-        super(4);
-    }
+
     //~Public  Methods ........................................................
 
 }

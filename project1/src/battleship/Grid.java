@@ -1,11 +1,9 @@
 package battleship;
-public class Battleship extends Battleships {
+public class Grid {
     //~ Fields ................................................................
 
     //~ Constructors ..........................................................
-    public Battleship() {
-        super(4);
-    }
+
     //~Public  Methods ........................................................
 
 }
