@@ -19,11 +19,15 @@ public class Battleships {
         this.size = size;
         this.x = 0;
         this.y = 0;
-        this.rotate = 0;
+        this.rotate = 1;
         coordinates = new Coordinate[size];
         for (int i = 0; i < size; i++) {
             coordinates[i] = new Coordinate(x+i,y);
         }
+    }
+    
+    public Coordinate[] getCoords() {
+        return coordinates;
     }
     
     //~Public  Methods ........................................................
@@ -72,6 +76,7 @@ public class Battleships {
         }
         return true;
     }
+    
     public Coordinate[] updateCoordinate() {
         if (size % 2 == 0) { //if size is even, meaning there's no center point
             switch (rotate) {
@@ -106,10 +111,10 @@ public class Battleships {
      */
     private boolean checkOOB() {
         for (int i = 0; i < size; i++) {
-            if (coordinates[i].getX() < 0 || coordinates[i].getX() > 10) {
+            if (coordinates[i].getX() < 0 || coordinates[i].getX() > 9) {
                 return false;
             }
-            if (coordinates[i].getY() < 0 || coordinates[i].getY() > 10) {
+            if (coordinates[i].getY() < 0 || coordinates[i].getY() > 9) {
                 return false;
             }
         }

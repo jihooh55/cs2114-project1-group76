@@ -1,5 +1,6 @@
 package battleship;
-public class Main {
+
+public class Game {
     //~ Fields ................................................................
 
     //~ Constructors ..........................................................
