@@ -27,14 +27,12 @@ public class Grid
     
     /**
      * prints the grid. 
-     * IMPORTANT!!!!!!!!!!! first [] in grid[][] is the Y POSITION!!!!!!
-     * IMPORTANT!!!!!!!!!!! second [] is the X POSTION!!!!
-     * !!!!!!!!!!!!!!!!!!!!!!!!!!!!! so the coordinates are flipped (y, x)!!!!
+     * x and y no longer flipped
      */
     public void printGrid() {
-        for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
             System.out.println("-----------------------------------------");
-            for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 10; i++) {
                 switch (grid[i][j])
                 {
                     case 0:
