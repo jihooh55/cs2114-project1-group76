@@ -3,8 +3,8 @@ package battleship;
 
 public class Battleships
 {
-    private int x = 0;
-    private int y = 0;
+    private int x = 4; //initial position of boats are near the center 4
+    private int y = 4;
     private int rotate = 1; // 1 flat and right dominant and rotates CC to 4
     private int size;
     private Coordinate[] coordinates;
@@ -26,13 +26,13 @@ public class Battleships
     }
 
 
-    public boolean setPosition(int x, int y)
-    {
-        this.x = x;
-        this.y = y;
-        updateCoordinate();
-        return checkOOB();
-    }
+//    public boolean setPosition(int x, int y)
+//    {
+//        this.x = x;
+//        this.y = y;
+//        updateCoordinate();
+//        return checkOOB();
+//    }
 
 
     public Coordinate[] getCoords()
@@ -50,7 +50,7 @@ public class Battleships
     /**
      * moves the battleship
      * 
-     * @param the
+     * @param
      *            user keyboard input in char will determine the action
      * @return returns false if input key is not one of the accepted inputs
      */
@@ -64,17 +64,21 @@ public class Battleships
 // }
 // if (accepted == false) {
 // return false;
-// }
+// 
+        int tempx = x;
+        int tempy = y;
+        int tempr = rotate;
+        
         switch (input)
         {
             case 'w':
-                y++;
+                y--;
                 break;
             case 'a':
                 x--;
                 break;
             case 's':
-                y--;
+                y++;
                 break;
             case 'd':
                 x++;
@@ -90,8 +94,18 @@ public class Battleships
                 }
                 break;
             default:
+//                System.out.println("Please input a valid key");
                 return false;
         }
+        if (checkOOB() == false) {
+            System.out.println("You can't place out of bounds");
+            x = tempx;
+            y = tempy;
+            rotate = tempr;
+            return false;
+        }
+        
+        
         return true;
     }
 
@@ -128,7 +142,6 @@ public class Battleships
                     coordinates[i].setY(y - i);
                 }
         }
-        checkOOB();
         return this.coordinates;
     }
 
@@ -140,6 +153,13 @@ public class Battleships
      */
     private boolean checkOOB()
     {
+        updateCoordinate();
+        
+        for (Coordinate coord : getCoords()) {
+            if (coord.getX() < 0 || coord.getX() > 9 || coord.getY() < 0 || coord.getY() > 9) {
+                return false;
+            }
+        }
         for (int i = 0; i < size; i++)
         {
             if (coordinates[i].getX() < 0 || coordinates[i].getX() > 9)
