@@ -13,7 +13,12 @@ public class Main {
 
     
     public static void main(String[] args) {
+        Computer cpu = new Computer();
+        Score score = new Score();
         Grid grid = new Grid();
+        Grid computerGrid = new Grid(); //computer's grid; players bomb this.
+        Grid playerGrid = new Grid();
+        Bomb playerBomb = new Bomb();
         Player p = new Player();
         Scanner scanner = new Scanner(System.in);
         boolean setUp = true;
@@ -65,7 +70,40 @@ public class Main {
             } 
         }
         grid.printGrid();
+        
         System.out.println("set up done!");
+        
+        while (cpu.getShipsLeft() > 0) {
+            cpu.popShip();
+            cpu.place(cpu.getShip(), computerGrid);
+            
+        }
+        
+        computerGrid.printGrid();
+        
+        System.out.println("Computer has placed its ships. Game start!");
+        // ---------------------------
+
+        score.setTurn(1);
+        
+        while (score.getComputerHits() < 17 && score.getPlayerHits() < 17) {
+            if (score.getTurn() == 1) {
+                input = scanner.next().charAt(0);
+                if (!playerBomb.move(input)) {
+                    if (input == 'p') {
+                        
+                    }
+                }
+                score.setTurn(2);
+            }
+            else if (score.getTurn() == 2) {
+                
+                score.setTurn(1);
+            }
+        }
+        
+        
+        
         
         
         
