@@ -27,12 +27,15 @@ public class Grid
     
     /**
      * prints the grid. 
-     * x and y no longer flipped
+     * IMPORTANT!!!!!!!!!!! first [] in grid[][] is the Y POSITION!!!!!!
+     * IMPORTANT!!!!!!!!!!! second [] is the X POSTION!!!!
+     * !!!!!!!!!!!!!!!!!!!!!!!!!!!!! so the coordinates are flipped (y, x)!!!!
+     * Don't edit.
      */
     public void printGrid() {
-        for (int j = 0; j < 10; j++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println("-----------------------------------------");
-            for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
                 switch (grid[i][j])
                 {
                     case 0:
@@ -42,7 +45,7 @@ public class Grid
                         System.out.print("| X ");
                         break;
                     case 1:
-                        System.out.print("| \uD83D\uDD5E ");
+                        System.out.print("| \u25CF ");
                         break;
                     case 2:
                         System.out.print("| O ");
@@ -64,6 +67,9 @@ public class Grid
     {
         for (Coordinate coord : ship.getCoords())
         {
+            if (grid[coord.getY()][coord.getX()] == 1) {
+                return false;
+            }
             grid[coord.getY()][coord.getX()] = 1;
 //            if (grid[coord.getX()][coord.getY()] == 10)
 //            {
@@ -77,6 +83,7 @@ public class Grid
 //        return true;
 //    }
         }
+        
         return true;
     }
     
@@ -93,7 +100,9 @@ public class Grid
         
         for (Coordinate coordNew : ship.getCoords())
         {
-            grid[coordNew.getY()][coordNew.getX()] = 2;
+            if (grid[coordNew.getY()][coordNew.getX()] != 1) {
+                grid[coordNew.getY()][coordNew.getX()] = 2;
+            }
 //            if (grid[coord.getX()][coord.getY()] == 10)
 //            {
 //                return false;
