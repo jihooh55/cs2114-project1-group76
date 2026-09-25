@@ -35,7 +35,7 @@ public class BombTest extends TestCase
     public void testMoveUp()
     {
         assertTrue(bomb.move('w'));
-        assertEquals(6, bomb.getY());
+        assertEquals(4, bomb.getY());
         assertEquals(5, bomb.getX());
     }
 
@@ -43,7 +43,7 @@ public class BombTest extends TestCase
     public void testMoveDown()
     {
         assertTrue(bomb.move('s'));
-        assertEquals(4, bomb.getY());
+        assertEquals(6, bomb.getY());
         assertEquals(5, bomb.getX());
     }
 
