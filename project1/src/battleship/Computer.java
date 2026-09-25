@@ -34,6 +34,33 @@ public class Computer
     }
 
 
+    /**
+     * this computer's own board, where its ships live.
+     */
+    public Grid board()
+    {
+        return board;
+    }
+
+
+    /**
+     * this computer's fleet.
+     */
+    public Battleships[] ships()
+    {
+        return ships;
+    }
+
+
+    /**
+     * randomly places a ship onto this computer's own board.
+     */
+    public boolean place(Battleships ship)
+    {
+        return place(ship, board);
+    }
+
+
     public boolean place(Battleships ship, Grid board) {
         Random r = new Random();
         int size = ship.size();
@@ -92,7 +119,7 @@ public class Computer
                 return false;
             }
 
-            if (!board.canHit(x, y)) {
+            if (!board.isFree(x, y)) {
                 return false;
             }
         }

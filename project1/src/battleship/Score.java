@@ -1,5 +1,12 @@
 package battleship;
  
+// -------------------------------------------------------------------------
+/**
+ *  score class to keep track of the game progres and other variables
+ *  
+ *  @author Jiho Oh
+ *  @version Sep 25, 2026
+ */
 public class Score
 {
     //~ Fields ................................................................
@@ -13,6 +20,10 @@ public class Score
  
     private static final int TOTAL_SHIPS = 5;
  
+    // ----------------------------------------------------------
+    /**
+     * Create a new Score object.
+     */
     //~ Constructors ..........................................................
     public Score()
     {
@@ -21,12 +32,21 @@ public class Score
  
  
     //~Public  Methods ........................................................
+    // ----------------------------------------------------------
+    /**
+     * @return
+     *          return the current turn
+     */
     public int getTurn()
     {
         return turn;
     }
  
- 
+    /**
+     * @param newTurn
+     *          sets the turn to integer passed
+     *          
+     */
     public void setTurn(int newTurn)
     {
         this.turn = newTurn;
@@ -91,6 +111,10 @@ public class Score
     }
  
  
+    /**
+     * @return
+     *          number of hits
+     */
     public int getPlayerHits()
     {
         return playerHits;
